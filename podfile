@@ -1,0 +1,12 @@
+
+use_frameworks!
+
+target 'ShoppingSystem' do
+pod 'MJRefresh'
+pod 'MJExtension'
+pod 'Alamofire'
+pod 'SDWebImage' 
+
+
+
+end
