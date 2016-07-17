@@ -27,6 +27,14 @@
 		2C1D0F3F1D3761A000BFDE4D /* LoginControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D0F3E1D3761A000BFDE4D /* LoginControllerViewController.swift */; };
 		2C1D0F411D3761B700BFDE4D /* LoginControllerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C1D0F401D3761B700BFDE4D /* LoginControllerViewController.storyboard */; };
 		2C1D0F431D3776CF00BFDE4D /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D0F421D3776CF00BFDE4D /* AnimationView.swift */; };
+		2C23B2AE1D3BA03900BBFA4D /* SuzeeStrechCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B2AD1D3BA03900BBFA4D /* SuzeeStrechCollectionViewLayout.swift */; };
+		2C23B2B11D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B2AF1D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.swift */; };
+		2C23B2B21D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C23B2B01D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.xib */; };
+		2C23B2B41D3BAA8D00BBFA4D /* MineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B2B31D3BAA8D00BBFA4D /* MineCollectionViewController.swift */; };
+		2C23B2B71D3BBBA100BBFA4D /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B2B51D3BBBA100BBFA4D /* CustomCollectionViewCell.swift */; };
+		2C23B2B81D3BBBA100BBFA4D /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C23B2B61D3BBBA100BBFA4D /* CustomCollectionViewCell.xib */; };
+		2C23B2BB1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23B2B91D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.swift */; };
+		2C23B2BC1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C23B2BA1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.xib */; };
 		2C4AF9001D38A84E00D4C7FD /* RegesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4AF8FF1D38A84E00D4C7FD /* RegesterViewController.swift */; };
 		2C4AF9021D38A85F00D4C7FD /* RegesterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C4AF9011D38A85F00D4C7FD /* RegesterViewController.storyboard */; };
 		2C8D61621D352D94002CEA3B /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8D61611D352D94002CEA3B /* MainTabBarViewController.swift */; };
@@ -62,6 +70,14 @@
 		2C1D0F3E1D3761A000BFDE4D /* LoginControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerViewController.swift; sourceTree = "<group>"; };
 		2C1D0F401D3761B700BFDE4D /* LoginControllerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginControllerViewController.storyboard; sourceTree = "<group>"; };
 		2C1D0F421D3776CF00BFDE4D /* AnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		2C23B2AD1D3BA03900BBFA4D /* SuzeeStrechCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuzeeStrechCollectionViewLayout.swift; path = Mine/View/SuzeeStrechCollectionViewLayout.swift; sourceTree = "<group>"; };
+		2C23B2AF1D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuzeeHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C23B2B01D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuzeeHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C23B2B31D3BAA8D00BBFA4D /* MineCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MineCollectionViewController.swift; path = Mine/Controller/MineCollectionViewController.swift; sourceTree = "<group>"; };
+		2C23B2B51D3BBBA100BBFA4D /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCollectionViewCell.swift; path = Mine/View/CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C23B2B61D3BBBA100BBFA4D /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCollectionViewCell.xib; path = Mine/View/CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C23B2B91D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C23B2BA1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrdersCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C4AF8FF1D38A84E00D4C7FD /* RegesterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegesterViewController.swift; sourceTree = "<group>"; };
 		2C4AF9011D38A85F00D4C7FD /* RegesterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegesterViewController.storyboard; sourceTree = "<group>"; };
 		2C8D61611D352D94002CEA3B /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +294,7 @@
 		2C1939491D320C10005297D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2C23B2B31D3BAA8D00BBFA4D /* MineCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -292,6 +309,13 @@
 		2C19394B1D320C1D005297D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C23B2AD1D3BA03900BBFA4D /* SuzeeStrechCollectionViewLayout.swift */,
+				2C23B2AF1D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.swift */,
+				2C23B2B01D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.xib */,
+				2C23B2B51D3BBBA100BBFA4D /* CustomCollectionViewCell.swift */,
+				2C23B2B61D3BBBA100BBFA4D /* CustomCollectionViewCell.xib */,
+				2C23B2B91D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.swift */,
+				2C23B2BA1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -437,9 +461,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C23B2B21D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.xib in Resources */,
 				2C4AF9021D38A85F00D4C7FD /* RegesterViewController.storyboard in Resources */,
 				2C1D0F411D3761B700BFDE4D /* LoginControllerViewController.storyboard in Resources */,
+				2C23B2BC1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.xib in Resources */,
 				2C1939301D31FE03005297D4 /* LaunchScreen.storyboard in Resources */,
+				2C23B2B81D3BBBA100BBFA4D /* CustomCollectionViewCell.xib in Resources */,
 				2C17CAEF1D35FF9100008F41 /* SearchScrollView.xib in Resources */,
 				2C19392D1D31FE03005297D4 /* Assets.xcassets in Resources */,
 				2C17CAFC1D3619A600008F41 /* LocalizableStrings.strings in Resources */,
@@ -504,15 +531,20 @@
 			files = (
 				2C17CB0A1D3676F700008F41 /* SearchHistoryTool.swift in Sources */,
 				2C1939261D31FE03005297D4 /* AppDelegate.swift in Sources */,
+				2C23B2B11D3BA1CC00BBFA4D /* SuzeeHeaderCollectionViewCell.swift in Sources */,
 				2C8D61621D352D94002CEA3B /* MainTabBarViewController.swift in Sources */,
 				2C17CB051D36473D00008F41 /* TagView.swift in Sources */,
+				2C23B2B41D3BAA8D00BBFA4D /* MineCollectionViewController.swift in Sources */,
 				2C17CAE71D35F9A300008F41 /* SearchResultsCollectionViewController.swift in Sources */,
 				2C19393F1D320BB5005297D4 /* IndexCollectionViewController.swift in Sources */,
 				2C17CAE91D35FA2E00008F41 /* NoHeaderCollectionViewLayout.swift in Sources */,
 				2C4AF9001D38A84E00D4C7FD /* RegesterViewController.swift in Sources */,
 				2C17CAEB1D35FCAA00008F41 /* SearchScrollView.swift in Sources */,
+				2C23B2B71D3BBBA100BBFA4D /* CustomCollectionViewCell.swift in Sources */,
 				2C00A5811D337D7A006195F0 /* BanerImagesScrollView.swift in Sources */,
 				2C1939501D320EB0005297D4 /* ViewController.swift in Sources */,
+				2C23B2BB1D3BBBDF00BBFA4D /* MyOrdersCollectionViewCell.swift in Sources */,
+				2C23B2AE1D3BA03900BBFA4D /* SuzeeStrechCollectionViewLayout.swift in Sources */,
 				2C06F9CC1D37CBB600B40E16 /* WaterWaveView.swift in Sources */,
 				2C00A5841D337FD3006195F0 /* Define.swift in Sources */,
 				2C1D0F431D3776CF00BFDE4D /* AnimationView.swift in Sources */,
@@ -648,7 +680,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cocoa.ShoppingSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fanzz/Documents/SwiftCode/ShoppingSystem/ShoppingSystem/ShoppingSystem-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fanzz/Documents/CodeForMe/ShoppingSystem/ShoppingSystem/ShoppingSystem-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -662,7 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cocoa.ShoppingSystem;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fanzz/Documents/SwiftCode/ShoppingSystem/ShoppingSystem/ShoppingSystem-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/fanzz/Documents/CodeForMe/ShoppingSystem/ShoppingSystem/ShoppingSystem-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
