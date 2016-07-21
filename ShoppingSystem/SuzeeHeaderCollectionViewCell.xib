@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="227" height="223"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="maa-8a-Dpc">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeadBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="maa-8a-Dpc">
                         <rect key="frame" x="0.0" y="0.0" width="227" height="223"/>
                     </imageView>
                 </subviews>
@@ -32,4 +32,7 @@
             <point key="canvasLocation" x="380.5" y="427.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="HeadBGImage" width="375" height="144"/>
+    </resources>
 </document>

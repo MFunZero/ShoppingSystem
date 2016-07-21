@@ -61,9 +61,10 @@ class LoginControllerViewController: UIViewController {
     }
  
     @IBAction func loginButtonClicked(sender: AnyObject) {
-        
-        buttonBGChange()
-        
+//        
+//        buttonBGChange()
+//        
+
         if mailAddressTextfield.text == "" {
             shakeAnimationForView(mailAddressTextfield)
             mailAddressTextfield.becomeFirstResponder()
@@ -76,6 +77,8 @@ class LoginControllerViewController: UIViewController {
             return
         }
         
+        addWaterAnimationForView(loginButton)
+
         
         let username = mailAddressTextfield.text! as String
         let pwd = passwordTextfield.text! as String
@@ -86,31 +89,42 @@ class LoginControllerViewController: UIViewController {
         let prefixURL = "user/login?".stringByAppendingString("nickname=\(username)&pwd=\(pwd)")
         let url = BaseURL.stringByAppendingString(prefixURL)
         
+//        
+//        Alamofire.request(.GET,url).responseJSON() {
+//            
+//            (data)in
+//            
+//           let result = data.result
+//            
+//            switch (result) {
+//                
+//            case .Failure:
+//                
+//                print("Error to Login:\(result.error)")
+//
+//            case .Success:
+//                print("Success to Login:\(data)")
         
-        Alamofire.request(.GET,url).responseJSON() {
-            
-            (data)in
-            
-           let result = data.result
-            
-            switch (result) {
-                
-            case .Failure:
-                
-                print("Error to Login:\(result.error)")
-
-            case .Success:
-                print("Success to Login:\(data)")
-                
-                NSNotificationCenter.defaultCenter().postNotificationName("LoginSuccess", object: nil, userInfo: nil)
-                self.dismissViewControllerAnimated(true, completion: nil)
-
-            }
         
-            
-            
+        
+//          
+        
+        
+        let delta:UInt64 = 2;
+        let time:dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW,Int64( NSEC_PER_SEC*delta))
+        dispatch_after(time, dispatch_get_global_queue(0, 0)) {
+            NSNotificationCenter.defaultCenter().postNotificationName("LoginSuccess", object: nil, userInfo: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
         
+        
+
+//            }
+//        
+//            
+//            
+//        }
+//        
         
         
     }

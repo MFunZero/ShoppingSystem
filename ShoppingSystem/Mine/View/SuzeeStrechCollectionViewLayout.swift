@@ -19,12 +19,12 @@ class SuzeeStrechCollectionViewLayout: UICollectionViewLayout {
     
     var delegate:StrechDelete?
     
-    var currentOriginY:CGFloat = 215
+    var currentOriginY:CGFloat = 210
     
     var headerReferenceSize:CGSize?
     
     var attributeArray:[UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
-    var insets:UIEdgeInsets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+    var insets:UIEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
     
  
     
@@ -77,6 +77,7 @@ class SuzeeStrechCollectionViewLayout: UICollectionViewLayout {
         }else{
             currentOriginY += height!
         }
+        
         return attrs;
         
     }
@@ -131,11 +132,10 @@ class SuzeeStrechCollectionViewLayout: UICollectionViewLayout {
     
     override func collectionViewContentSize() -> CGSize {
     
-        if currentOriginY < screenH {
-            return CGSize(width: 0, height:screenH)
-        }else{
-        return CGSize(width: 0, height:currentOriginY)
-        }
+//        let height = CGFloat(self.collectionView?.numberOfItemsInSection(0)*)
+        
+            return CGSize(width: 0, height:screenH+50)
+       
     }
 
     

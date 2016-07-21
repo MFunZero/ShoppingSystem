@@ -15,4 +15,10 @@ class MyOrdersCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    @IBAction func needPayButtonClicked(sender: AnyObject) {
+    }
+    @IBAction func ToBeShippedButtonClicked(sender: AnyObject) {
+    }
+    @IBAction func ReceiptButtonClicked(sender: AnyObject) {
+    }
 }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--发布-->
+        <scene sceneID="nEp-Lj-NO8">
+            <objects>
+                <viewController storyboardIdentifier="PublishViewController" id="266-hl-ibT" customClass="PublishViewController" customModule="ShoppingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eKc-gh-kAg"/>
+                        <viewControllerLayoutGuide type="bottom" id="sQu-8w-JHN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hti-IQ-pMl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="New-ef-DYN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Jo-7z-yMl">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltT-L6-wgV" customClass="TitleView" customModule="ShoppingSystem" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="1" width="345" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="yv1-3A-X4s"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dD0-Z9-Fly" customClass="UploadContentView" customModule="ShoppingSystem" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="106" width="345" height="180"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="Hg3-lJ-1Dr"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="dD0-Z9-Fly" firstAttribute="leading" secondItem="6Jo-7z-yMl" secondAttribute="leading" constant="15" id="MJg-No-Fyl"/>
+                                            <constraint firstItem="ltT-L6-wgV" firstAttribute="top" secondItem="6Jo-7z-yMl" secondAttribute="top" constant="1" id="SsK-QL-DRW"/>
+                                            <constraint firstAttribute="trailing" secondItem="ltT-L6-wgV" secondAttribute="trailing" constant="15" id="UYB-8i-Lua"/>
+                                            <constraint firstItem="dD0-Z9-Fly" firstAttribute="top" secondItem="ltT-L6-wgV" secondAttribute="bottom" constant="15" id="VZ6-82-mye"/>
+                                            <constraint firstItem="ltT-L6-wgV" firstAttribute="leading" secondItem="6Jo-7z-yMl" secondAttribute="leading" constant="15" id="bPs-0R-mA5"/>
+                                            <constraint firstItem="dD0-Z9-Fly" firstAttribute="centerX" secondItem="6Jo-7z-yMl" secondAttribute="centerX" id="cos-fy-Xsg"/>
+                                            <constraint firstAttribute="trailing" secondItem="dD0-Z9-Fly" secondAttribute="trailing" constant="15" id="w5p-03-5Vt"/>
+                                            <constraint firstAttribute="height" id="zYE-oY-Sri"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="6Jo-7z-yMl" secondAttribute="bottom" id="2ne-3A-mqo"/>
+                                    <constraint firstItem="6Jo-7z-yMl" firstAttribute="centerX" secondItem="New-ef-DYN" secondAttribute="centerX" id="Ex5-3h-yVS"/>
+                                    <constraint firstItem="6Jo-7z-yMl" firstAttribute="leading" secondItem="New-ef-DYN" secondAttribute="leading" id="HfI-bk-3Ui"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Jo-7z-yMl" secondAttribute="trailing" id="NoA-hb-uor"/>
+                                    <constraint firstItem="6Jo-7z-yMl" firstAttribute="top" secondItem="New-ef-DYN" secondAttribute="top" id="VTu-ds-9jU"/>
+                                    <constraint firstAttribute="height" constant="1000" id="Xoy-pP-rb2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="New-ef-DYN" firstAttribute="leading" secondItem="Hti-IQ-pMl" secondAttribute="leading" id="FgR-dA-Ref"/>
+                            <constraint firstAttribute="trailing" secondItem="New-ef-DYN" secondAttribute="trailing" id="IAe-g6-8Bn"/>
+                            <constraint firstItem="New-ef-DYN" firstAttribute="top" secondItem="Hti-IQ-pMl" secondAttribute="top" id="Zu1-HH-3Xl"/>
+                            <constraint firstItem="New-ef-DYN" firstAttribute="centerX" secondItem="Hti-IQ-pMl" secondAttribute="centerX" id="jFP-p9-d5b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="发布" id="KSb-7s-0bQ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="scrollView" destination="New-ef-DYN" id="nbw-GH-ss7"/>
+                        <outlet property="topContentView" destination="ltT-L6-wgV" id="8tE-dy-IGA"/>
+                        <outlet property="uploadContentView" destination="dD0-Z9-Fly" id="VCe-gC-SMe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNe-yo-0jP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hg1-Q8-fB6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rPF-Ys-CQt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Bu-yA-79d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="266-hl-ibT" kind="relationship" relationship="rootViewController" id="REO-Ah-YgQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UDj-0e-kQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="303" y="364"/>
+        </scene>
+    </scenes>
+</document>

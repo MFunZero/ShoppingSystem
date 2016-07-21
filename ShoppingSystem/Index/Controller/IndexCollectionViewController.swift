@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol IndexViewControllerDelegate {
+    func addButtonClicked()
+}
+
+
+
 private let reuseIdentifier = "Cell"
 
 class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCollectionViewLayoutDelegate {
+    
+    var delegate:IndexViewControllerDelegate?
 
     var imgURLS = ["http://i0.hdslb.com/bfs/bangumi/a32e30108af7cd7349201f0b7664392b5b7a3646.jpg","http://i0.hdslb.com/bfs/bangumi/1cc08a1f81b6241b31afa90b8ebd62c5b3c75e09.jpg","http://i0.hdslb.com/bfs/bangumi/9ff5679d5bb95750802ec98796fde26b16740f10.jpg"]
     
@@ -49,10 +57,14 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     }
     
     func loginSuccess(notification:NSNotification){
-        loginBarButton.action = #selector(rightBarButtonClicked)
         loginBarButton.title = ""
-        
-        
+
+        let customView1 = UIImageView(image: UIImage(named: "Artboard 1"))
+       
+        loginBarButton.customView = customView1
+        customView1.userInteractionEnabled = true
+        let gap1 = UITapGestureRecognizer(target: self, action: #selector(rightBarButtonClicked))
+        customView1.addGestureRecognizer(gap1)
         
         regesterBarButton.title = ""
         let customView = UIImageView(image: UIImage(named: "leftMenu"))
@@ -70,6 +82,8 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     }
     
     func rightBarButtonClicked(){
+        
+        self.delegate?.addButtonClicked()
         
     }
 
@@ -100,6 +114,8 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     func flowLayout(layout: WaterfallFlowCollectionViewLayout, heightForHeader width: CGFloat) -> CGFloat {
         return 140
     }
+    
+    
     
     
     
