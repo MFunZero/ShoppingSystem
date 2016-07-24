@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ServiceConfimView" customModule="ShoppingSystem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkx-fG-lpo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                </pickerView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BgU-SM-0Cr">
+                    <rect key="frame" x="0.0" y="400" width="375" height="267"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuX-Fh-19w">
+                            <rect key="frame" x="46" y="112" width="282" height="44"/>
+                            <color key="backgroundColor" red="0.24313725489999999" green="0.85882352939999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="0yq-Bi-Jsp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="cCg-B6-3MM"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="TuX-Fh-19w" firstAttribute="width" secondItem="BgU-SM-0Cr" secondAttribute="width" multiplier="0.75" id="0wb-1a-5qS"/>
+                        <constraint firstItem="TuX-Fh-19w" firstAttribute="centerY" secondItem="BgU-SM-0Cr" secondAttribute="centerY" id="VDT-uD-CGu"/>
+                        <constraint firstItem="TuX-Fh-19w" firstAttribute="centerX" secondItem="BgU-SM-0Cr" secondAttribute="centerX" id="uqa-cR-scc"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0R-u8-ujD">
+                    <rect key="frame" x="320" y="15" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Tbw-Kw-ai6"/>
+                        <constraint firstAttribute="width" constant="40" id="sIA-Qt-xGr"/>
+                    </constraints>
+                    <state key="normal" image="btn_cancel"/>
+                    <connections>
+                        <action selector="cancelButtonClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Zso-dR-3Yc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="j0R-u8-ujD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="2tF-3G-SeK"/>
+                <constraint firstItem="zkx-fG-lpo" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.6" id="Agi-EY-Crb"/>
+                <constraint firstAttribute="trailing" secondItem="BgU-SM-0Cr" secondAttribute="trailing" id="Ay6-Vb-a5h"/>
+                <constraint firstAttribute="trailing" secondItem="zkx-fG-lpo" secondAttribute="trailing" id="EIV-Ia-Ilv"/>
+                <constraint firstItem="BgU-SM-0Cr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Olg-fA-yqu"/>
+                <constraint firstItem="zkx-fG-lpo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TG0-vf-ULt"/>
+                <constraint firstItem="BgU-SM-0Cr" firstAttribute="top" secondItem="zkx-fG-lpo" secondAttribute="bottom" id="k5T-WF-weP"/>
+                <constraint firstAttribute="trailing" secondItem="j0R-u8-ujD" secondAttribute="trailing" constant="15" id="nsz-xy-ZBs"/>
+                <constraint firstItem="zkx-fG-lpo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="trs-pG-lxt"/>
+                <constraint firstAttribute="bottom" secondItem="BgU-SM-0Cr" secondAttribute="bottom" id="ttq-qY-PIL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="pickerView" destination="zkx-fG-lpo" id="tJP-pH-e1L"/>
+            </connections>
+            <point key="canvasLocation" x="255.5" y="86.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_cancel" width="19" height="19"/>
+    </resources>
+</document>

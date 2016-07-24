@@ -17,6 +17,17 @@ let ENGILISH = "en"
 
 let BaseURL = "http://allensu.ngrok.cc/ssm/"
 
+
+//service dataSource
+let service:[String] = ["七天无理由退换货","退换货运费卖家承担","退换货运费买家承担","特殊用品不可退换"]
+
+
+
+//MARK -- Color RGB
+let seperatorRGB:UInt = 0xCBCBCB
+let mainRBG:UInt = 0x3EDBB8
+
+
 extension UIColor {
     convenience init(rgb: UInt) {
         self.init(
@@ -60,7 +71,7 @@ func shakeAnimationForView(view:UIView){
     
     animation.repeatCount = 3
     
-    viewLayer.addAnimation(animation, forKey: "shaake")
+    viewLayer.addAnimation(animation, forKey: "shake")
     
 }
 

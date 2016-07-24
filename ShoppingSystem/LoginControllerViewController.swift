@@ -42,7 +42,7 @@ class LoginControllerViewController: UIViewController {
 
         
         let waterView = WaterWaveView(frame: CGRectMake(0,bgView.frame.height*3/4,bgView.frame.width,bgView.frame.height))
-        self.bgView.addSubview(waterView)
+//        self.bgView.addSubview(waterView)
         
 //    waterView.layer.addSublayer(shadowAsInverse(CGRectMake(0,250,screenW,screenH-250)))
     
