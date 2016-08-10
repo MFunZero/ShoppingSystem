@@ -8,22 +8,44 @@
 
 import UIKit
 
+protocol ServiceConfirmViewDelegate {
+    func cancelButtonClicked()
+    
+    func confirmButtonClicked(title:String)
+}
+
+
+
 class ServiceConfimView: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
 
+    var delegate:ServiceConfirmViewDelegate?
+    
+    
     var titles:[String] = [String]()
+    
+    var selectContent:String?
+    
     
     @IBOutlet weak var pickerView: UIPickerView!
     
     override func drawRect(rect: CGRect) {
         // Drawing code
+        
+        selectContent = titles[0]
+        
+        
         pickerView.delegate = self
         pickerView.dataSource = self
     }
  
     @IBAction func cancelButtonClicked(sender: AnyObject) {
+        
+        self.delegate?.cancelButtonClicked()
+        
     }
 
     @IBAction func confirmButtonClicked(sender: AnyObject) {
+        self.delegate?.confirmButtonClicked(selectContent!)
     }
 }
 
@@ -43,7 +65,7 @@ extension ServiceConfimView {
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        selectContent = titles[row]
     }
     
     

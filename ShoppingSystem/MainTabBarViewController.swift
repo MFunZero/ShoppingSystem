@@ -37,6 +37,13 @@ class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelega
         self.navigationController?.pushViewController(target, animated: true)
     }
     
+    func toDetailController(item: Goods) {
+        
+        let mainStoryboard = UIStoryboard(name: "GoodsItemDetailViewController", bundle: nil)
+        let vc = mainStoryboard.instantiateInitialViewController()
+        self.navigationController?.pushViewController(vc!, animated: true)
+
+    }
     
     func searchBarDidFocus() {
         let vc = SearchResultsCollectionViewController(collectionViewLayout: NoHeaderCollectionViewLayout())

@@ -11,7 +11,7 @@ import UIKit
 
 private let SpecificationTableCellIdentifier="SpecificationTableViewCell"
 
-class PublishViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,SpecificationTableViewDelegate,CollectionViewCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class PublishViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,SpecificationTableViewDelegate,CollectionViewCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ServiceConfirmViewDelegate{
     @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var topContentView: TitleView!
@@ -94,14 +94,48 @@ class PublishViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         confirmView?.frame = CGRectMake(screenW*0.05, screenH/2-screenW*0.3, screenW*0.9, screenW*0.6)
         self.navigationController?.view.addSubview(confirmView!)
         
+        confirmView?.delegate = self
+        
         confirmView?.layer.cornerRadius = 10
         confirmView?.clipsToBounds = true
         confirmView?.titles.appendContentsOf(service)
         confirmView?.pickerView.reloadAllComponents()
         
     }
-    @IBAction func expressAddressButtonClicked(sender: AnyObject) {
+    
+    @IBAction func doneButtonClicked(sender: AnyObject) {
         
+        print("发布商品信息:\(isPostageFree.on)")
+        
+    }
+    func cancelButtonClicked() {
+        grayView.removeFromSuperview()
+        confirmView?.removeFromSuperview()
+    }
+    
+    func confirmButtonClicked(title: String) {
+    
+        grayView.removeFromSuperview()
+        confirmView?.removeFromSuperview()
+    }
+    
+    @IBAction func expressAddressButtonClicked(sender: AnyObject) {
+        grayView.frame = self.view.frame
+        grayView.backgroundColor = UIColor.blackColor()
+        grayView.alpha = 0.3
+        self.navigationController?.view.addSubview(grayView)
+        
+        confirmView = NSBundle.mainBundle().loadNibNamed("ServiceConfimView", owner: self, options: nil).last as? ServiceConfimView
+        
+        confirmView?.frame = CGRectMake(screenW*0.05, screenH/2-screenW*0.3, screenW*0.9, screenW*0.6)
+        self.navigationController?.view.addSubview(confirmView!)
+        
+        confirmView?.delegate = self
+        
+        confirmView?.layer.cornerRadius = 10
+        confirmView?.clipsToBounds = true
+        confirmView?.titles.appendContentsOf(service)
+        confirmView?.pickerView.reloadAllComponents()
         
         
     }

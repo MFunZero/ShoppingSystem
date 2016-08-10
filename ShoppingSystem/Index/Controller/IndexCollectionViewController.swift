@@ -10,6 +10,7 @@ import UIKit
 
 protocol IndexViewControllerDelegate {
     func addButtonClicked()
+    func toDetailController(item:Goods)
 }
 
 
@@ -20,7 +21,7 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     
     var delegate:IndexViewControllerDelegate?
 
-    var imgURLS = ["http://i0.hdslb.com/bfs/bangumi/a32e30108af7cd7349201f0b7664392b5b7a3646.jpg","http://i0.hdslb.com/bfs/bangumi/1cc08a1f81b6241b31afa90b8ebd62c5b3c75e09.jpg","http://i0.hdslb.com/bfs/bangumi/9ff5679d5bb95750802ec98796fde26b16740f10.jpg"]
+   
     
     @IBOutlet weak var regesterBarButton: UIBarButtonItem!
     @IBOutlet weak var loginBarButton: UIBarButtonItem!
@@ -28,33 +29,38 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configView()
+    }
+
+    func configView()
+    {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "LightBlurView"), forBarMetrics: .Default)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         self.title = NSLocalizedString("首页", comment: "Index")
-               
+        
         let layoutNew = WaterfallFlowCollectionViewLayout()
         layoutNew.delegate = self;
         self.collectionView!.collectionViewLayout = layoutNew
         self.collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-     
+        
         
         
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView!.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "HeaderView")
         self.collectionView?.backgroundColor = UIColor.whiteColor()
-        
+        self.collectionView?.registerNib(UINib(nibName: "IndexCustomCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: "custom")
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(loginSuccess(_:)), name: "LoginSuccess", object: nil)
         
-        
-        // Do any additional setup after loading the view.
+
     }
+    
     
     func loginSuccess(notification:NSNotification){
         loginBarButton.title = ""
@@ -104,9 +110,9 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     func flowLayout(layout: WaterfallFlowCollectionViewLayout, heightForWidth width: CGFloat, atIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = indexPath.row
         if row%2 == 1{
-            return 120
+            return 200
         }else {
-            return 80
+            return 160
         }
         
     }
@@ -124,16 +130,7 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -162,7 +159,7 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("custom", forIndexPath: indexPath) as! IndexCustomCollectionViewCell
     
         // Configure the cell
         cell.backgroundColor = UIColor.brownColor()
@@ -170,35 +167,10 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
+   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    self.delegate?.toDetailController(Goods())
     
     }
-    */
 
 }

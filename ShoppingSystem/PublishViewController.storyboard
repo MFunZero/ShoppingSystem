@@ -86,16 +86,16 @@
                                                     <constraint firstAttribute="height" constant="1" id="ghn-Ma-c58"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNx-f4-Q62">
-                                                <rect key="frame" x="15" y="119" width="323" height="1"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNx-f4-Q62">
+                                                <rect key="frame" x="15" y="116" width="323" height="1"/>
                                                 <color key="backgroundColor" red="0.79607843140000001" green="0.79607843140000001" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="7zL-X1-tJG"/>
                                                     <constraint firstAttribute="height" constant="1" id="QeP-TL-8mF"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="query_correct_arrow_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tlZ-rS-D7G">
-                                                <rect key="frame" x="293" y="75" width="30" height="26"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="query_correct_arrow_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tlZ-rS-D7G">
+                                                <rect key="frame" x="293" y="75" width="30" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="IEG-Pe-1hE"/>
                                                 </constraints>
@@ -108,8 +108,8 @@
                                                     <constraint firstAttribute="height" constant="30" id="eZk-Xf-7v4"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-tu-dsr">
-                                                <rect key="frame" x="91" y="60" width="202" height="59"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOh-tu-dsr">
+                                                <rect key="frame" x="91" y="60" width="202" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Qo2-IN-oOu"/>
                                                 </constraints>
@@ -206,7 +206,14 @@
                             <constraint firstAttribute="bottom" secondItem="New-ef-DYN" secondAttribute="bottom" id="jKk-4a-Syr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="发布" id="KSb-7s-0bQ"/>
+                    <navigationItem key="navigationItem" title="发布" id="KSb-7s-0bQ">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="oma-yI-Ft9">
+                            <color key="tintColor" red="0.29176176007858645" green="0.90588235294117647" blue="0.89654396858616225" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="doneButtonClicked:" destination="266-hl-ibT" id="1Ia-a8-AE0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bottomView" destination="mn2-Vu-inC" id="Gfw-Ac-xBG"/>

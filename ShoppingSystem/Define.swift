@@ -17,6 +17,7 @@ let ENGILISH = "en"
 
 let BaseURL = "http://allensu.ngrok.cc/ssm/"
 
+ var imgURLS = ["http://i0.hdslb.com/bfs/bangumi/a32e30108af7cd7349201f0b7664392b5b7a3646.jpg","http://i0.hdslb.com/bfs/bangumi/1cc08a1f81b6241b31afa90b8ebd62c5b3c75e09.jpg","http://i0.hdslb.com/bfs/bangumi/9ff5679d5bb95750802ec98796fde26b16740f10.jpg"]
 
 //service dataSource
 let service:[String] = ["七天无理由退换货","退换货运费卖家承担","退换货运费买家承担","特殊用品不可退换"]
