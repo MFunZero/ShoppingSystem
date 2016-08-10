@@ -8,3 +8,7 @@ Swift写的客户端，后台接口是自己用java写的，ngrok映射的公网
 ![image](https://github.com/suzee/ShoppingSystem/raw/master/screenshot/dynamic.gif?raw=true)
 
 ![image](https://github.com/suzee/ShoppingSystem/raw/master/screenshot/fabu.gif?raw=true)
+
+
+![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/Simulator%20Screen%20Shot%202016%E5%B9%B48%E6%9C%8810%E6%97%A5%20%E4%B8%8A%E5%8D%8810.26.48.png)
+![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/Simulator%20Screen%20Shot%202016%E5%B9%B48%E6%9C%8810%E6%97%A5%20%E4%B8%8A%E5%8D%8810.26.44.png)
