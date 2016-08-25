@@ -3,7 +3,7 @@
 Swift写的客户端，后台接口是自己用java写的，ngrok映射的公网，进度稍慢，目前实现了登录注册功能，先上传下，之后会持续更新
 
 ![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/publish.gif)
-
+![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/detail.gif)
 
 登录界面下部的半透明图层是水波纹动画
 
