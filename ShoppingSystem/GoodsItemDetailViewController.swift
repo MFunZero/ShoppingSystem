@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
 
 
 
 class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
-
+    
     
     
     @IBOutlet weak var commentView: UIView!
@@ -24,15 +24,30 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
     
     @IBOutlet weak var commentTableView: UITableView!
     
+    @IBOutlet weak var collectButton: UIButton!
+    
+    @IBOutlet weak var voteButton: UIButton!
+    
+    
     var comment:NSMutableDictionary = NSMutableDictionary()
     var cellHeight:[CGFloat]=[44]
     
+    var goods:GoodsModelItem?
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
-        configView()
         
+        
+        configView()
+        queryIsVoted()
+        queryIsCollectioned()
         // Do any additional setup after loading the view.
     }
     
@@ -56,7 +71,11 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
         commentTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "comment")
         commentTableView.registerNib(UINib(nibName: "CommentTableViewCell",bundle: nil), forCellReuseIdentifier: "commentCustom")
         commentTableView.separatorStyle = .None
-
+        
+        
+        descritionLabel.text = goods?.titleDescription
+        
+        
     }
     func updateFrame(){
         
@@ -66,7 +85,7 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
         }
         commentView.frame = CGRectMake(commentView.frame.origin.x, commentView.frame.origin.y, commentView.frame.width, height)
         
-       commentTableView.frame = CGRectMake(commentTableView.frame.origin.x, commentTableView.frame.origin.y, commentTableView.frame.width, height-44)
+        commentTableView.frame = CGRectMake(commentTableView.frame.origin.x, commentTableView.frame.origin.y, commentTableView.frame.width, height-44)
         let constraints = commentView.constraints
         for constraint in constraints {
             if constraint.firstAttribute == NSLayoutAttribute.Height {
@@ -79,18 +98,18 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
                 constraint.constant = height
             }
         }
-
-     
+        
+        
         commentTableView.setNeedsDisplay()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     // MARK -- tableView
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -108,25 +127,25 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = indexPath.row
-
+        
         print("tag:\(tableView.tag),row:\(row)")
         if tableView.tag == 1001{
             
-
+            
             if row == 0 {
                 return 80
             }
             return 44
-
+            
         }else{
             updateFrame()
-
-        
+            
+            
             print("ch:\(cellHeight[row])")
             return cellHeight[row]
             
         }
-
+        
     }
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 44
@@ -136,11 +155,11 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
         let row = indexPath.row
         
         if tableView.tag == 1001{
-
+            
             switch row {
             case 0:
                 let cell = tableView.dequeueReusableCellWithIdentifier("title", forIndexPath: indexPath) as! DetailTitleTableViewCell
-                cell.titleLabel.text = "产地直销皇家贡米，水电费卢卡斯的浪费拉伸的"
+                cell.titleLabel.text = goods!.title
                 cell.selectionStyle = .None
                 return cell
                 
@@ -149,16 +168,16 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
                 cell.leftLabel.text = "已售46件"
                 cell.rightLabel.text = "四川"
                 cell.selectionStyle = .None
-
+                
                 return cell
             default:
                 let cell = tableView.dequeueReusableCellWithIdentifier("titleT", forIndexPath: indexPath) as! CustomTableViewCell
-                cell.leftLabel.text = "七天无理由退换货"
+                cell.leftLabel.text = goods?.post_saleService
                 cell.selectionStyle = .None
                 
                 return cell
             }
-        
+            
         }else{
             switch row {
             case 3:
@@ -166,7 +185,7 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
                 let button = UIButton(frame: CGRectMake(0,0,cell.frame.width,cell.frame.height))
                 cell.addSubview(button)
                 cellHeight.insert(44, atIndex:cellHeight.count)
-
+                
                 button.setTitle("查看更多", forState: .Normal)
                 button.setTitleColor(UIColor(rgb: seperatorRGB), forState: .Normal)
                 return cell
@@ -180,8 +199,129 @@ class GoodsItemDetailViewController: UIViewController,UITableViewDelegate,UITabl
                 return cell
             }
             
-
+            
         }
     }
+    
+}
 
+extension GoodsItemDetailViewController{
+    
+    @IBAction func voteButtonClicked(sender: UIButton) {
+        
+        let goodsId = goods!.id
+        let prefix = BaseUrlRequset()
+        if goods?.voteStatus != true {
+            let url = prefix.vote.stringByAppendingString("addOne?userId=\(currentUserId)&&voteGoodsId=\(goodsId!)")
+            SuzeeRequest.shareInstance.request("vote",url:url) { (flag, value) in
+                print("value:\(value)")
+                if flag{
+                    self.goods?.voteStatus = true
+                    self.goods?.voteId = value as? NSNumber
+                    sender.setImage(UIImage(named:"icon_tabbar_discovery_selected" ), forState: .Normal)
+                }}
+        }else{
+            let id = goods?.voteId
+            let url = prefix.vote.stringByAppendingString("delete?id=\(id!)")
+            SuzeeRequest.shareInstance.request("vote",url:url) { (flag, value) in
+                print("vote::::\(value)")
+
+                if 1 == value as? NSNumber{
+                    self.goods?.voteStatus = false
+                    self.goods?.voteId = nil
+                    sender.setImage(UIImage(named:"icon_tabbar_discovery" ), forState: .Normal)
+                }}
+            
+        }
+
+        
+        
+        
+    }
+    @IBAction func collectionButtonClicked(sender: AnyObject) {
+        
+        let goodsId = goods!.id
+        let prefix = BaseUrlRequset()
+        if goods?.collectionStatus != true {
+            let url = prefix.collection.stringByAppendingString("addOne?userId=\(currentUserId)&&goodsId=\(goodsId!)")
+            print("url::::\(url)")
+            SuzeeRequest.shareInstance.request("collection",url:url) { (flag, value) in
+                print("value:\(value)")
+                if value != nil{
+                    self.goods?.collectionStatus = true
+                    self.goods?.collectionId = value as? NSNumber
+                     sender.setImage(UIImage(named:"item_del_collect_02" ), forState: .Normal)
+                }}
+        }else{
+            let id = goods?.collectionId
+            let url = prefix.collection.stringByAppendingString("deleteOne?id=\(id!)")
+            print("url::::\(url)")
+            SuzeeRequest.shareInstance.request("collection",url:url) { (flag, value) in
+                print("vote::::\(value)")
+                
+                if 1 == value as? NSNumber{
+                    self.goods?.collectionStatus = false
+                    self.goods?.collectionId = nil
+                    sender.setImage(UIImage(named:"item_collect_02" ), forState: .Normal)
+                }}
+            
+        }
+        
+        
+        
+     
+        
+    }
+    
+    @IBAction func messageButtonClicked(sender: AnyObject) {
+    }
+    
+    @IBAction func addToCart(sender: AnyObject) {
+        
+        let mainStoryboard = UIStoryboard(name: "CartViewController", bundle: nil)
+        let vc = mainStoryboard.instantiateInitialViewController() as! CartViewController
+      
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
+        
+    }
+    
+    @IBAction func buyButtonClicked(sender: AnyObject) {
+    }
+    
+    func queryIsVoted(){
+        
+        let goodsId = goods!.id
+        
+        let url = BaseURL.stringByAppendingString("vote/isVoted?userId=\(currentUserId)&&voteGoodsId=\(goodsId!)")
+        
+        SuzeeRequest.shareInstance.request("vote",url: url) { (flag, value) in
+            if let id = value?.objectForKey("id") as? NSNumber{
+                self.goods?.voteId = id
+                self.goods?.voteStatus = true
+                self.voteButton.setImage(UIImage(named:"icon_tabbar_discovery_selected" ), forState: .Normal)
+            }
+        }
+        
+        
+    }
+    
+    func queryIsCollectioned(){
+        let goodsId = goods!.id
+        
+        let url = BaseURL.stringByAppendingString("collection/isCollectioned?userId=\(currentUserId)&&goodsId=\(goodsId!)")
+        print("url::::\(url)")
+        
+        SuzeeRequest.shareInstance.request("collection",url: url) { (flag, value) in
+          print("val:\(value)")
+            if let id = value?.objectForKey("id") as? NSNumber{
+                self.goods?.collectionId = id
+                self.goods?.collectionStatus = true
+                    
+                    self.collectButton.setImage(UIImage(named:"item_del_collect_02" ), forState: .Normal)
+                }}
+
+    }
+    
 }

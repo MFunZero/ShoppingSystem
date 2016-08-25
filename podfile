@@ -6,7 +6,6 @@ pod 'MJRefresh'
 pod 'MJExtension'
 pod 'Alamofire'
 pod 'SDWebImage' 
-
-
-
+pod 'SVProgressHUD'
+pod 'MBProgressHUD'
 end

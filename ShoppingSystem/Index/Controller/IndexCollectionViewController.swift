@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+import SVProgressHUD
+
 
 protocol IndexViewControllerDelegate {
     func addButtonClicked()
-    func toDetailController(item:Goods)
+    func toDetailController(item:GoodsModelItem)
 }
 
 
@@ -26,19 +29,52 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     @IBOutlet weak var regesterBarButton: UIBarButtonItem!
     @IBOutlet weak var loginBarButton: UIBarButtonItem!
     
+    lazy var goodsList:[GoodsModelItem] = [GoodsModelItem]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configView()
+        
+        requestData()
     }
 
+    func requestData()
+    {
+//        SVProgressHUD.showInfoWithStatus("数据加载中...")
+        
+        let url = BaseURL.stringByAppendingString("goods/query")
+    Alamofire.request(.GET, url)
+        .responseJSON { (response) in
+            let result = response.result
+            switch result{
+            case .Failure(let error):
+                print("Failed get goodsList:\(error)")
+//                SVProgressHUD.dismiss()
+                toastErrorMessage(self.view, title: "获取数据出错，请稍后重试", hideAfterDelay: 2)
+                
+            case .Success(let value):
+                print("Successed get goodsList:\(value)")
+                let list = value.objectForKey("list") as! NSMutableArray
+                
+                let goodsArray = GoodsModelItem.mj_objectArrayWithKeyValuesArray(list)
+                for item in goodsArray{
+                    self.goodsList.append(item as! GoodsModelItem)
+                }
+                
+                self.collectionView?.reloadData()
+//                SVProgressHUD.showSuccessWithStatus("数据加载完成")
+            }
+        }
+    }
+    
     func configView()
     {
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(named: "LightBlurView"), forBarMetrics: .Default)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        
         
         self.title = NSLocalizedString("首页", comment: "Index")
         
@@ -141,7 +177,7 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 4
+        return self.goodsList.count
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -163,13 +199,15 @@ class IndexCollectionViewController: UICollectionViewController,WaterfallFlowCol
     
         // Configure the cell
         cell.backgroundColor = UIColor.brownColor()
-    
+        let row = indexPath.row
+        cell.setGoodModel(goodsList[row])
+        
         return cell
     }
 
    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
-    self.delegate?.toDetailController(Goods())
+    self.delegate?.toDetailController(self.goodsList[indexPath.row])
     
     }
 

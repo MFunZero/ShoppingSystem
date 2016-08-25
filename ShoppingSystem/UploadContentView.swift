@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 
 private let cellIdentifier = "CollectionViewCell"
 
@@ -14,12 +16,16 @@ protocol CollectionViewCellDelegate {
     func addCellButtonClicked()
     
     func subImageButtonCliked(imgs:[UIImage])
+    
+    
+    func textViewDidEdit(text:String)
 }
 
 class UploadContentView: UIView ,UICollectionViewDelegate,UICollectionViewDataSource{
     
     var delegate:CollectionViewCellDelegate?
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var imgs:[UIImage] = [UIImage]()
     
@@ -46,8 +52,14 @@ class UploadContentView: UIView ,UICollectionViewDelegate,UICollectionViewDataSo
         collectionView.backgroundColor = UIColor.whiteColor()
         
         collectionView.registerNib(UINib(nibName: "ImgCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didChange(_:)), name: UITextViewTextDidChangeNotification, object: nil)
     }
- 
+    
+    func didChange(notification:NSNotification){
+        self.delegate?.textViewDidEdit(self.descriptionTextView.text)
+    }
 
     override func awakeFromNib() {
         NSBundle.mainBundle().loadNibNamed("UploadContentView", owner: self, options: nil)
@@ -59,40 +71,64 @@ class UploadContentView: UIView ,UICollectionViewDelegate,UICollectionViewDataSo
 }
 extension UploadContentView {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if imgs.count < 5 {
-        return (imgs.count) + 1
-        }else {
+       
+        if imgs.count < 6 {
             return imgs.count
+        }else{
+            return 5
         }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let row = indexPath.row
-        if row == 0 && imgs.count < 5{
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as? ImgCollectionViewCell
-        cell?.backgroundColor = UIColor(rgb: seperatorRGB)
-        cell?.imgView.image = UIImage(named:"Artboard 1")
-        
-        return cell!
-        }else if imgs.count == 5{
+    
+        if imgs.count < 6{
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as? ImgCollectionViewCell
             cell?.backgroundColor = UIColor(rgb: seperatorRGB)
             cell?.imgView.image = imgs[row]
-            addCancelButton(cell!,row: row)
+//            if row > 0 {
+//            addCancelButton(cell!,row: row)
+//            }
+            return cell!
+        }else if imgs.count == 6{
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as? ImgCollectionViewCell
+            cell?.backgroundColor = UIColor(rgb: seperatorRGB)
+            cell?.imgView.image = imgs[row+1]
+//            addCancelButton(cell!,row: row)
             return cell!
         }else{
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as? ImgCollectionViewCell
             cell?.backgroundColor = UIColor(rgb: seperatorRGB)
             cell?.imgView.image = imgs[row-1]
-            addCancelButton(cell!,row: row)
+            
+//            addCancelButton(cell!,row: row)
             return cell!
         }
     }
     
+    
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 && imgs.count < 5{
+        if indexPath.row == 0 && imgs.count < 6{
+
             self.delegate?.addCellButtonClicked()
+//            for i in 0..<imgs.count {
+//                let cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: i, inSection: 0))
+//                for subview in (cell?.contentView.subviews)!{
+//                   if subview.superclass == UIButton.self {
+//                    subview.removeFromSuperview()
+//                    }
+//                }
+//            }
+            
+//            let cell = collectionView.cellForItemAtIndexPath(indexPath)
+//            for subview in (cell?.contentView.subviews)!{
+//                
+//                if subview.superclass == UIButton.self {
+//                subview.removeFromSuperview()
+//            }
+//            }
         }
     }
     
@@ -100,7 +136,10 @@ extension UploadContentView {
     func addCancelButton(cell:UICollectionViewCell,row:Int)
     {
        
-        
+     
+        if row == 0 {
+            return
+        }
         
         let rect = cell.frame
         
@@ -115,7 +154,7 @@ extension UploadContentView {
         button.tag = row
         button.addTarget(self, action: #selector(deleteCell(_:)), forControlEvents: .TouchUpInside)
         
-        cell.addSubview(button)
+        cell.contentView.addSubview(button)
         
         
     }
@@ -123,7 +162,7 @@ extension UploadContentView {
     func deleteCell(sender:AnyObject)
     {
         var indexPath = NSIndexPath()
-        if imgs.count == 5 {
+        if imgs.count == 6 {
              indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
         imgs.removeAtIndex(sender.tag)
         }else{
@@ -133,6 +172,10 @@ extension UploadContentView {
         
         self.collectionView.deleteItemsAtIndexPaths([indexPath])
 
+        print("tag:\(sender.tag)")
+//        let button = self.collectionView.viewWithTag(sender.tag) as! UIButton
+//        button.removeFromSuperview()
+//        self.collectionView.willRemoveSubview(button)
         self.delegate?.subImageButtonCliked(imgs)
     }
     

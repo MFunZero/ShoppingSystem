@@ -11,7 +11,7 @@ import UIKit
 protocol ServiceConfirmViewDelegate {
     func cancelButtonClicked()
     
-    func confirmButtonClicked(title:String)
+    func confirmButtonClicked(title:String,type:AlertConfirmType,index:Int)
 }
 
 
@@ -23,15 +23,18 @@ class ServiceConfimView: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
     
     var titles:[String] = [String]()
     
+    var type:AlertConfirmType?
+    
     var selectContent:String?
     
+    var index:Int = 0
     
     @IBOutlet weak var pickerView: UIPickerView!
     
     override func drawRect(rect: CGRect) {
         // Drawing code
         
-        selectContent = titles[0]
+//        selectContent = titles[0]
         
         
         pickerView.delegate = self
@@ -45,7 +48,11 @@ class ServiceConfimView: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
     }
 
     @IBAction func confirmButtonClicked(sender: AnyObject) {
-        self.delegate?.confirmButtonClicked(selectContent!)
+        if selectContent != nil{
+        self.delegate?.confirmButtonClicked(selectContent!,type:type!,index:index )
+        }else{
+            self.delegate?.confirmButtonClicked("",type:type!,index:index )
+        }
     }
 }
 
@@ -65,7 +72,10 @@ extension ServiceConfimView {
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if titles.count > 0 {
         selectContent = titles[row]
+            index = row
+        }
     }
     
     

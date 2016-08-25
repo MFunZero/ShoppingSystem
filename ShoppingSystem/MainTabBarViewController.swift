@@ -37,11 +37,13 @@ class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelega
         self.navigationController?.pushViewController(target, animated: true)
     }
     
-    func toDetailController(item: Goods) {
+    func toDetailController(item: GoodsModelItem) {
         
         let mainStoryboard = UIStoryboard(name: "GoodsItemDetailViewController", bundle: nil)
-        let vc = mainStoryboard.instantiateInitialViewController()
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = mainStoryboard.instantiateInitialViewController() as! GoodsItemDetailViewController
+        vc.goods = item
+    
+        self.navigationController?.pushViewController(vc, animated: true)
 
     }
     

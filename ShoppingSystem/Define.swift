@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
+
 
 let screenW = UIScreen.mainScreen().bounds.width
 let screenH = UIScreen.mainScreen().bounds.height
@@ -15,7 +17,14 @@ let screenH = UIScreen.mainScreen().bounds.height
 let CHINESE = "zh-Hans"
 let ENGILISH = "en"
 
+
+let currentUserId="111111"
+
+
 let BaseURL = "http://allensu.ngrok.cc/ssm/"
+
+let BaseImgURL = "http://allensu.ngrok.cc/ssm/upload/"
+
 
  var imgURLS = ["http://i0.hdslb.com/bfs/bangumi/a32e30108af7cd7349201f0b7664392b5b7a3646.jpg","http://i0.hdslb.com/bfs/bangumi/1cc08a1f81b6241b31afa90b8ebd62c5b3c75e09.jpg","http://i0.hdslb.com/bfs/bangumi/9ff5679d5bb95750802ec98796fde26b16740f10.jpg"]
 
@@ -90,5 +99,14 @@ func addWaterAnimationForView(view:UIView){
     
 }
 
-
+func toastErrorMessage(view:UIView,title:String,hideAfterDelay time:NSTimeInterval){
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.mode = .Text
+    hud.labelText = title
+    hud.yOffset = 150.0
+    
+    hud.show(true)
+    
+    hud.hide(true, afterDelay: time)
+}
 
