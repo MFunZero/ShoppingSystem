@@ -19,7 +19,7 @@ let ENGILISH = "en"
 
 
 let currentUserId="111111"
-
+var currentUserName = ""
 
 let BaseURL = "http://allensu.ngrok.cc/ssm/"
 
@@ -86,6 +86,7 @@ func shakeAnimationForView(view:UIView){
 }
 
 
+
 func addWaterAnimationForView(view:UIView){
     let viewLayer = view.layer
     
@@ -110,3 +111,139 @@ func toastErrorMessage(view:UIView,title:String,hideAfterDelay time:NSTimeInterv
     hud.hide(true, afterDelay: time)
 }
 
+
+func sizeForText(constraintSize:CGSize,str:NSString)->CGSize{
+    
+    let attr = [NSFontAttributeName:UIFont.systemFontOfSize(20)]
+    let rect = str.boundingRectWithSize(constraintSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attr, context: nil)
+    let size = CGSizeMake(rect.width, rect.height)
+    
+    return size
+}
+
+
+
+extension NSDate {
+    func format()->String{
+        let formatter = "yyyy-mm-dd hh:MM:ss"
+        let format = NSDateFormatter()
+        format.dateFormat = formatter
+        return format.stringFromDate(self)
+    }
+}
+func timeStampToString(timeStamp:NSString)->String {
+    
+    let str = timeStamp.substringToIndex(timeStamp.length-3)
+    
+    let string = NSString(string: str)
+    
+    let timeSta:NSTimeInterval = string.doubleValue
+    let dfmatter = NSDateFormatter()
+    let formatter = "yyyy-mm-dd hh:MM:ss"
+
+    dfmatter.dateFormat = formatter
+    
+    let date = NSDate(timeIntervalSince1970: timeSta)
+    
+    print(dfmatter.stringFromDate(date))
+    return dfmatter.stringFromDate(date)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ 
+ 
+ @IBAction func confirmButtonClicked(sender: AnyObject) {
+ 
+ guard order.addressId != nil else{
+ 
+ toastErrorMessage(self.view, title: "请选择收货地址", hideAfterDelay: 2)
+ return
+ }
+ 
+ guard self.order.id != "" else {
+ toastErrorMessage(self.view, title: "订单已经创建成功，可移步到‘我的订单’进行查看", hideAfterDelay: 2)
+ return
+ }
+ 
+ 
+ order.purchaseId = currentUserId
+ 
+ let url = BaseURL.stringByAppendingString("orders/addOne")
+ let para = Orders.mj_keyValuesArrayWithObjectArray([order])
+ //        para.addObject(<#T##anObject: AnyObject##AnyObject#>)
+ SuzeeRequest.shareInstance.request("orders", url: url, param: para[0] as? [String : AnyObject]) { (falg, value) in
+ 
+ switch (falg) {
+ 
+ case false:
+ 
+ print("Error to AddOrders")
+ 
+ case true:
+ print("Success to AddOrders:\(value)")
+ if let dict = value as? NSDictionary {
+ 
+ print("items:\(dict)")
+ 
+ let orders:Orders = Orders.mj_objectWithKeyValues(dict)
+ orders.address = self.order.address
+ 
+ var items:[OrderItem] = [OrderItem]()
+ 
+ for item in self.cartItem {
+ 
+ let oi:OrderItem = OrderItem(goodsId: item.goodsId!, count: item.num!, specificationId: item.specId!, totalPrice: item.totalPrice!, orderId: orders.id!)
+ 
+ 
+ items.append(oi)
+ 
+ 
+ }
+ 
+ 
+ let url1 = BaseURL.stringByAppendingString("orderItem/addList")
+ let para1 = OrderItemsList(list: items)
+ let param = ["items":para1.mj_JSONString()]
+ SuzeeRequest.shareInstance.request("orders", url: url1, param: param) { (falg, value) in
+ 
+ guard value != nil else{
+ toastErrorMessage(self.view, title: "生成订单出错，请稍后重试", hideAfterDelay: 2)
+ return
+ }
+ toastErrorMessage(self.view, title: "订单创建成功", hideAfterDelay: 2)
+ self.order.id = orders.id
+ 
+ let mainStoryBoard = UIStoryboard(name: "PayOrderController", bundle: nil)
+ let vc = mainStoryBoard.instantiateInitialViewController() as? PayOrderController
+ vc?.cartItem = self.cartItem
+ vc?.orders = orders
+ 
+ self.navigationController?.pushViewController(vc!, animated: true)
+ 
+ }
+ }
+ }
+ 
+ 
+ 
+ 
+ 
+ }
+ }
+ }
+ 
+ 
+
+ 
+ */

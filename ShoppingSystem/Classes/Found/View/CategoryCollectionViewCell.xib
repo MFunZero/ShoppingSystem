@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CategoryCollectionViewCell" customModule="ShoppingSystem" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="214" height="71"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeadBGImage" translatesAutoresizingMaskIntoConstraints="NO" id="z81-Id-BtE">
+                        <rect key="frame" x="0.0" y="0.0" width="62" height="71"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="z81-Id-BtE" secondAttribute="height" multiplier="62:71" id="zla-ab-Q39"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34c-WK-ofp">
+                        <rect key="frame" x="77" y="0.0" width="137" height="71"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="z81-Id-BtE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CUK-ny-ST5"/>
+                <constraint firstItem="z81-Id-BtE" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Q8q-v1-UOD"/>
+                <constraint firstItem="34c-WK-ofp" firstAttribute="height" secondItem="z81-Id-BtE" secondAttribute="height" id="Z6H-tG-2ln"/>
+                <constraint firstItem="z81-Id-BtE" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="ZIP-GV-2UG"/>
+                <constraint firstAttribute="trailing" secondItem="34c-WK-ofp" secondAttribute="trailing" id="baE-uq-e08"/>
+                <constraint firstItem="34c-WK-ofp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="iBX-Ru-Jmj"/>
+                <constraint firstItem="34c-WK-ofp" firstAttribute="leading" secondItem="z81-Id-BtE" secondAttribute="trailing" constant="15" id="uWL-i8-uI8"/>
+            </constraints>
+            <size key="customSize" width="214" height="71"/>
+            <connections>
+                <outlet property="contentLabel" destination="34c-WK-ofp" id="Lad-xu-Jpe"/>
+                <outlet property="imgView" destination="z81-Id-BtE" id="1Pk-5W-FMr"/>
+            </connections>
+            <point key="canvasLocation" x="334" y="221.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="HeadBGImage" width="375" height="144"/>
+    </resources>
+</document>

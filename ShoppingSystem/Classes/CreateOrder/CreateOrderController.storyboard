@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Ro-Rn-aAo">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create Order Controller-->
+        <scene sceneID="RAG-Xy-K2U">
+            <objects>
+                <viewController id="7Ro-Rn-aAo" customClass="CreateOrderController" customModule="ShoppingSystem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9U0-dU-HAU"/>
+                        <viewControllerLayoutGuide type="bottom" id="SLZ-Yu-fba"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CYr-Wj-ERa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKX-E5-sxA">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNm-wS-cUJ">
+                                        <rect key="frame" x="480" y="0.0" width="120" height="44"/>
+                                        <color key="backgroundColor" red="0.75965314136125661" green="0.0" blue="0.0077998640780361722" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Ypm-YL-nkd"/>
+                                        </constraints>
+                                        <state key="normal" title="确认">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmButtonClicked:" destination="7Ro-Rn-aAo" eventType="touchUpInside" id="NPE-et-OXM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p38-Uh-T1s">
+                                        <rect key="frame" x="20" y="0.0" width="450" height="44"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="合计：">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.640625" green="0.640625" blue="0.640625" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="17" name="PingFangSC-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="44.7">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.57357219827586203" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRn-tj-8CY">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="1"/>
+                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="fCN-df-MPN"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="p38-Uh-T1s" firstAttribute="top" secondItem="KKX-E5-sxA" secondAttribute="top" id="0m4-U6-5sM"/>
+                                    <constraint firstAttribute="bottom" secondItem="XNm-wS-cUJ" secondAttribute="bottom" id="0w2-rP-ycP"/>
+                                    <constraint firstAttribute="bottom" secondItem="p38-Uh-T1s" secondAttribute="bottom" id="A0V-dM-Koa"/>
+                                    <constraint firstItem="XNm-wS-cUJ" firstAttribute="leading" secondItem="oRn-tj-8CY" secondAttribute="trailing" id="CgP-qZ-IGv"/>
+                                    <constraint firstAttribute="trailing" secondItem="XNm-wS-cUJ" secondAttribute="trailing" id="OfW-uS-yQE"/>
+                                    <constraint firstItem="oRn-tj-8CY" firstAttribute="leading" secondItem="KKX-E5-sxA" secondAttribute="leading" id="Ps5-eq-mef"/>
+                                    <constraint firstItem="oRn-tj-8CY" firstAttribute="top" secondItem="KKX-E5-sxA" secondAttribute="top" id="Wlb-rT-r3o"/>
+                                    <constraint firstItem="XNm-wS-cUJ" firstAttribute="top" secondItem="KKX-E5-sxA" secondAttribute="top" id="nM2-dW-io8"/>
+                                    <constraint firstItem="XNm-wS-cUJ" firstAttribute="leading" secondItem="p38-Uh-T1s" secondAttribute="trailing" constant="10" id="qda-uF-ZBW"/>
+                                    <constraint firstItem="p38-Uh-T1s" firstAttribute="leading" secondItem="KKX-E5-sxA" secondAttribute="leading" constant="20" id="rWz-Kp-E5T"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="27" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ugi-pD-nUc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ugi-pD-nUc" firstAttribute="leading" secondItem="CYr-Wj-ERa" secondAttribute="leading" id="M0H-Ww-iDj"/>
+                            <constraint firstItem="SLZ-Yu-fba" firstAttribute="top" secondItem="KKX-E5-sxA" secondAttribute="bottom" id="aMZ-Hc-HEl"/>
+                            <constraint firstItem="ugi-pD-nUc" firstAttribute="top" secondItem="CYr-Wj-ERa" secondAttribute="top" constant="64" id="eCK-4t-TuB"/>
+                            <constraint firstAttribute="trailing" secondItem="KKX-E5-sxA" secondAttribute="trailing" id="fTq-e4-0Tf"/>
+                            <constraint firstItem="KKX-E5-sxA" firstAttribute="top" secondItem="ugi-pD-nUc" secondAttribute="bottom" id="g0C-j0-Xpu"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ugi-pD-nUc" secondAttribute="bottom" constant="44" id="n2Z-uY-w8u"/>
+                            <constraint firstItem="KKX-E5-sxA" firstAttribute="leading" secondItem="CYr-Wj-ERa" secondAttribute="leading" id="o5b-c5-5si"/>
+                            <constraint firstAttribute="trailing" secondItem="ugi-pD-nUc" secondAttribute="trailing" id="p8Q-vM-RTF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ugi-pD-nUc" id="iZY-28-hS8"/>
+                        <outlet property="totalPriceLabel" destination="p38-Uh-T1s" id="ngm-BM-g7g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLH-WT-XpJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="228"/>
+        </scene>
+    </scenes>
+</document>

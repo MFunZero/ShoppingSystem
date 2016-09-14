@@ -1,11 +1,22 @@
+platform :ios, '8.0'
 
 use_frameworks!
 
 target 'ShoppingSystem' do
-pod 'MJRefresh'
 pod 'MJExtension'
 pod 'Alamofire'
 pod 'SDWebImage' 
 pod 'SVProgressHUD'
+pod 'XCGLogger', '~> 3.2'
+pod 'HyphenateFullSDK', :git => 'https://github.com/easemob/hyphenate-full-cocoapods.git'
 pod 'MBProgressHUD'
+
+pod 'Pingpp/Alipay'
+pod 'Pingpp/ApplePay'
+pod 'Pingpp/Wx'
+pod 'Pingpp/UnionPay'
+
+
+
+
 end

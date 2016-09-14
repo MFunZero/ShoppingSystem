@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelegate  ,MineControllePushDelegate,IndexViewControllerDelegate{
+class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelegate  ,MineControllePushDelegate,IndexViewControllerDelegate,ChatListDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelega
         (self.viewControllers![0].childViewControllers[0] as! IndexCollectionViewController).delegate = self
         (self.viewControllers![1].childViewControllers[0] as! ViewController).delegate = self
         (self.viewControllers![3] as! MineCollectionViewController).delegate = self
-
+        (self.viewControllers![2].childViewControllers[0] as! ConversationListViewController).toChatDetaildelegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -28,9 +28,14 @@ class MainTabBarViewController: UITabBarController,FoundViewControllerPushDelega
     }
     
  
-   
+    func toChatList(conversation: EMConversation) {
+        let  vc = ChatViewController(conversationChatter: conversation.conversationId, conversationType: conversation.type)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func addButtonClicked() {
+        
+        
         
         let vc = UIStoryboard(name: "PublishViewController", bundle: nil)
         let target = vc.instantiateViewControllerWithIdentifier("PublishViewController")

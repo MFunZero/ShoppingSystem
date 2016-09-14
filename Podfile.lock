@@ -1,29 +1,58 @@
 PODS:
   - Alamofire (3.3.1)
+  - HyphenateFullSDK (3.1.5)
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
-  - MJRefresh (3.1.0)
+  - Pingpp/Alipay (2.2.2):
+    - Pingpp/Core
+  - Pingpp/ApplePay (2.2.2):
+    - Pingpp/Core
+    - Pingpp/Network
+  - Pingpp/Core (2.2.2):
+    - Pingpp/Network
+  - Pingpp/Network (2.2.2)
+  - Pingpp/UnionPay (2.2.2):
+    - Pingpp/Core
+  - Pingpp/Wx (2.2.2):
+    - Pingpp/Core
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - SVProgressHUD (2.0.3)
+  - XCGLogger (3.3)
 
 DEPENDENCIES:
   - Alamofire
+  - HyphenateFullSDK (from `https://github.com/easemob/hyphenate-full-cocoapods.git`)
   - MBProgressHUD
   - MJExtension
-  - MJRefresh
+  - Pingpp/Alipay
+  - Pingpp/ApplePay
+  - Pingpp/UnionPay
+  - Pingpp/Wx
   - SDWebImage
   - SVProgressHUD
+  - XCGLogger (~> 3.2)
+
+EXTERNAL SOURCES:
+  HyphenateFullSDK:
+    :git: https://github.com/easemob/hyphenate-full-cocoapods.git
+
+CHECKOUT OPTIONS:
+  HyphenateFullSDK:
+    :commit: dabc2296bf03377a211450b3f1a813feac27e57d
+    :git: https://github.com/easemob/hyphenate-full-cocoapods.git
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  HyphenateFullSDK: 536f76eeb0914dba766b1d5d30dee083f0805da2
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  Pingpp: d1002b416ac23c4cb6ed50cac79af3edcbaa8ba7
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
-PODFILE CHECKSUM: 15eb861e439f81cd6a7d46025079037ea2f9adab
+PODFILE CHECKSUM: 0dae07a46af3c48bd39d8c26293e33b20be36434
 
-COCOAPODS: 1.0.0.beta.8
+COCOAPODS: 1.0.1
