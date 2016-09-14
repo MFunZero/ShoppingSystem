@@ -21,6 +21,8 @@ class ConversationListViewController: EaseConversationListViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        self.title = "消息"
         requestData()
         
     }
@@ -69,7 +71,6 @@ extension ConversationListViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) as! ChatListTableViewCell
         cell.selectionStyle = .None
-        cell.backgroundColor = UIColor.cyanColor()
         
         let conversation = self.conversationsArray[row] as! EMConversation
         cell.setConversation(conversation)

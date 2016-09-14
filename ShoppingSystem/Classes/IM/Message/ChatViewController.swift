@@ -29,6 +29,8 @@ class ChatViewController: EaseMessageViewController ,EaseMessageViewControllerDe
 extension ChatViewController {
     
 
+   
+    
 //    override func didSendText(text: String!) {
 //        
 //        super.didSendText(text)

@@ -55,6 +55,9 @@ class ChatListTableViewCell: UITableViewCell {
             
             
         }
+        self.nickNameLabel.text = conversation.conversationId
+    
+        self.avatarImageView.image = UIImage(named: "chatListCellHead")
         
         self.messageLabel.text = latestMessageTitle
 
