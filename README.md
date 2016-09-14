@@ -1,6 +1,7 @@
 # ShoppingSystem
 
-Swift写的客户端，后台接口是自己用java写的，ngrok映射的公网，进度稍慢，目前实现了登录注册功能，先上传下，之后会持续更新
+Swift写的客户端，后台接口是自己用java写的，ngrok映射的公网，进度稍慢，目前实现了支付、在线聊天、发布等，先上传下，之后会持续更新
+项目集成了Ping++支付、环信等框架
 
 ![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/publish.gif)
 ![image](https://github.com/suzee/ShoppingSystem/blob/master/screenshot/detail.gif)
